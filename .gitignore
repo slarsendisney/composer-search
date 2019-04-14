@@ -1,0 +1,4 @@
+node_modules
+test/screenshots/compare
+test/screenshots/diff
+test/screenshots/error

@@ -1,0 +1,25 @@
+{
+  "name": "test-cuke",
+  "version": "1.0.0",
+  "description": "An example project using the cucumber-puppeteer dependency",
+  "scripts": {
+    "test": "npx cucumber-js --require ./**/features/**/*.js --format ./node_modules/cucumber-puppeteer/features/support/util/PrettyFormatter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patheard/test-cuke.git"
+  },
+  "keywords": [
+    "cucumber",
+    "puppeteer"
+  ],
+  "author": "Pat Heard <patrick.heard@tpsgc-pwgsc.gc.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patheard/test-cuke/issues"
+  },
+  "homepage": "https://github.com/patheard/test-cuke#readme",
+  "dependencies": {
+    "cucumber-puppeteer": "^1.0.2"
+  }
+}
