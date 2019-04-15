@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/patheard/test-cuke#readme",
   "dependencies": {
-    "cucumber-puppeteer": "^1.0.2"
+    "cucumber-puppeteer": "^1.0.3"
   }
 }
