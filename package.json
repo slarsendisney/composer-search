@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An example project using the cucumber-puppeteer dependency",
   "scripts": {
-    "test": "npx cucumber-js --require ./**/features/**/*.js"
+    "test": "npx cucumber-js --require ./**/cucumber-puppeteer/**/features/**/*.js --require ./features/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/patheard/test-cuke#readme",
   "dependencies": {
-    "cucumber-puppeteer": "^1.0.15"
+    "cucumber-puppeteer": "^1.0.16"
   }
 }

@@ -10,7 +10,7 @@ The way it works is by telling cucumber-js to use the configuration and step def
 # package.json
 ...
 "scripts": {
-    "test": "npx cucumber-js --require ./**/features/**/*.js"
+    "test": "npx cucumber-js --require ./**/cucumber-puppeteer/**/features/**/*.js --require ./features/**/*.js"
 }
 ...
 ```
