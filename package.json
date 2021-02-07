@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
     "fetch": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +21,36 @@
   "homepage": "https://github.com/patheard/test-cuke#readme",
   "dependencies": {
     "csvtojson": "^2.0.10",
-    "puppeteer": "^7.0.1"
+    "gatsby": "^2.26.1",
+    "gatsby-buildtime-timezone": "^1.0.0",
+    "gatsby-plugin-manifest": "2.8.0",
+    "gatsby-plugin-postcss": "3.3.0",
+    "gatsby-plugin-react-helmet": "3.7.0",
+    "gatsby-plugin-sass": "^2.4.2",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-transformer-json": "^2.11.0",
+    "node-sass": "^4.14.1",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.3",
+    "puppeteer": "^7.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.32.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.1.0",
+    "babel-eslint": "10.1.0",
+    "cssnano": "4.1.10",
+    "eslint": "7.16.0",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-react": "7.21.5",
+    "gatsby-plugin-eslint": "2.0.8",
+    "postcss": "8.2.1",
+    "prettier": "2.2.1",
+    "tailwindcss": "2.0.2"
   }
 }
