@@ -18,27 +18,32 @@ const csvFilePath = "./data.csv";
   const page = await browser.newPage();
   const results = [];
   for (const site of sites) {
-    await page.goto(site);
-    console.log(`🔎 Checking ${site}`);
-    let pageData = await page.$eval("*", (el) => el.innerText);
-    pageData = pageData.toLowerCase();
-    for (const composer of composers) {
-      const pageParts = pageData.split(/\s/g);
-      for (part of pageParts) {
-        if (part.toLowerCase() == composer) {
-          console.log(`✅ Found Mention: ${composer}`);
-          const siteIndex = results.findIndex(
-            ({ website }) => website === site
-          );
-          if (siteIndex > -1) {
-            if (!results[siteIndex].composers.includes(composer)) {
-              results[siteIndex].composers.push(composer);
+    try {
+      await page.goto(site);
+      console.log(`🔎 Checking ${site}`);
+      let pageData = await page.$eval("*", (el) => el.innerText);
+      pageData = pageData.toLowerCase();
+      for (const composer of composers) {
+        const pageParts = pageData.split(/\s/g);
+        for (part of pageParts) {
+          if (part.toLowerCase() == composer) {
+            console.log(`✅ Found Mention: ${composer}`);
+            const siteIndex = results.findIndex(
+              ({ website }) => website === site
+            );
+            if (siteIndex > -1) {
+              if (!results[siteIndex].composers.includes(composer)) {
+                results[siteIndex].composers.push(composer);
+              }
+            } else {
+              results.push({ website: site, composers: [composer] });
             }
-          } else {
-            results.push({ website: site, composers: [composer] });
           }
         }
       }
+    } catch (e) {
+      console.log(e)
+      results.push({ website: site, error: true });
     }
   }
   fs.writeFile("results.json", JSON.stringify(results), function (err) {
