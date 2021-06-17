@@ -17,10 +17,11 @@ const csvFilePath = "./data.csv";
   });
   const page = await browser.newPage();
   const results = [];
+  let siteNumber = 1;
   for (const site of sites) {
     try {
       await page.goto(site);
-      console.log(`🔎 Checking ${site}`);
+      console.log(`🔎 Checking ${site} ${siteNumber}/${sites.length}`);
       let pageData = await page.$eval("*", (el) => el.innerText);
       pageData = pageData.toLowerCase();
       for (const composer of composers) {
@@ -45,6 +46,7 @@ const csvFilePath = "./data.csv";
       console.log(e)
       results.push({ website: site, error: true });
     }
+    siteNumber++;
   }
   fs.writeFile("results.json", JSON.stringify(results), function (err) {
     if (err) throw err;
