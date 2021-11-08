@@ -14,7 +14,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-buildtime-timezone`,
-    `gatsby-plugin-gatsby-cloud`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
