@@ -11,35 +11,18 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: npm install puppeteer csvtojson
-      - name: Fetch
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: npm run fetch
-      - name: Git Setup (Part One)
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: git config --local user.email "bot@github.com"
-      - name: Git Setup (Part Two)
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: git config --local user.name "GitHub Action Bot"
-      - name: Add Changes
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: git add -A
-      - name: Commit Changes
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: git commit --allow-empty -m "Updated Results"
-      - name: Push Changes
-        uses: ianwalter/puppeteer-container@acc52cd2334ad9eaf6e1974562d263e0a711b7e8
-        with:
-          args: git push
+      - name: npm install & fetch,
+        run: |
+          npm install puppeteer csvtojson
+          npm run fetch
+      - name: Git Add & Commit 
+        run: | 
+          git config --local user.email "bot@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add -A
+          git commit --allow-empty -m "Updated Results"
+      - name: Git Push
+        run: git push
